@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    #writing-grid {
+        display: grid;
+        grid-template-columns: repeat( var(--w), 1fr);
+        grid-template-rows: repeat( var(--h), 1fr);
+        width: calc(var(--w) * 60px);
+        height: calc(var(--h) * 60px);
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .grid-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        background: transparent;
+        /* background:radial-gradient( #84b8ec,#84b8ec); */
+        margin: 3px;
+        transition: all 0.1s ease-in-out;
+        animation-fill-mode: forwards;
+        border: 3px solid #0eacdc4d;
+    }
+
+    .selected {
+        background:radial-gradient( #84ec93,rgb(35, 188, 81));
+        border: 3px solid #0eacdc4d;
+    }
+    
+    .grid-box:hover {
+        background-color: rgb(27, 156, 200);
+        background:radial-gradient( #84b8ec,#2372bc);
+        opacity: 0.5;
+        /* background-repeat: no-repeat; */
+        border: 3.1px solid #0eacdc9e;
+    }
+    div{
+      font-family: monospace;
+      margin: 5px;
+      /* font-size: 10px; */
+    }
+
+    .submit {
+        border-radius: 15px;
+        /* font-size: ; */
+        padding: 9px;
+        background-color: #84ec93;
+        color: rgb(4, 0, 255);
+        font-weight: bolder;
+        /* height: 40px; */
+    }
+
+    .blue {
+        background-color: #ffc550;
+        color: rgb(255, 0, 0);
+        border: none;
+    }
+
+    .negative {
+        background-color: rgb(207, 214, 151);
+        color: rgb(34, 2, 2);
+    }
+
+    .bigger {
+        padding: 10px 35px;
+        border-radius: 15px;
+        /* width: 60px; */
+    }
+    /* 
+    .activated {
+      color: red;
+    }
+
+    br {
+      height: 2px;
+    } */
+    </style>
+</head>
+
+<body style="overflow: hidden;">
+  <!-- Hello world -->
+  <div id="top-cont" style="position: absolute;top: 0;left: 0;background-color: black; width: 92vw; height: 92vh; padding: 4vh 4vw;white-space: pre-wrap;  justify-content: center; align-items: center;display: flex; flex-direction: column; margin: 0 !important;">
+    <!-- <p style="color: white;" id="lorem"></p> -->
+
+    <div style="display: flex; align-items: center; justify-content: center;">
+        
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <label style="font-size: 16px;text-align: center;color: white;" for="label">Label the alphabet <span style="font-weight: bold; color: rgb(0, 238, 255);">(Case Sensitive!)</span> -> </label>
+            <input placeholder="a|A..." maxlength="1" style="border: 2px solid rgb(0, 251, 255);border-radius: 5px; height: 20px; width: 50px; padding: 5px 15px;" id="label"></input>
+        </div>
+        <button id="submit" class="submit">Submit!</button>
+    </div>
+    
+    <div id="writing-grid"></div>
+    
+    <div style="display: flex; gap: 25px;">
+        <button id="clear" class="submit negative bigger">Clear Canvas</button>
+        <button id="save" class="submit blue bigger">Save All!</button>
+    </div>
+    
+  </div>
+  <script type="module" src="./writer.js"></script>
+</body>
+
+</html>
